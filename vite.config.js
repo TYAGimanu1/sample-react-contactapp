@@ -12,6 +12,13 @@ export default defineConfig({
     },
   },
   server: {
-    historyApiFallback: true, // Redirect all routes to index.html
+    historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'https://sample-react-contactapp.vercel.app/api/user', // Replace with your backend server URL
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
   },
 });
