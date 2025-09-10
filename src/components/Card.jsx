@@ -12,6 +12,7 @@ const Card = () => {
     if (id) {
       axios.get(`/api/dynamic?id=${id}`)
         .then((res) => {
+          console.log('Fetched user data:', res.data); // Log the fetched data
           setUsers(res.data);
         })
         .catch((e) => {
@@ -28,10 +29,6 @@ const Card = () => {
         <h2>{users.email}</h2>
         <h2>{users.mobile}</h2>
         <h2>{users.course}</h2>
-        <td>hsdncuajdciaiudsji</td>
-           <td>hsdncuajdciaiudsji</td>
-              <td>hsdncuajdciaiudsji</td>
-                 <td>hsdncuajdciaiudsji</td>
         <h2>{users.city}</h2>
       </div>
     </>
