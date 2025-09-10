@@ -7,7 +7,13 @@ export default async function handler(req, res) {
     const data = await readFile(filePath, 'utf-8');
     const jsonData = JSON.parse(data);
 
-    res.status(200).json(jsonData.user); // Ensure the key matches the `db.json` structure
+    const userId = req.query.id; // Assuming the ID is passed as a query parameter
+    const user = jsonData.user.find(u => u.id === userId);
+    if (user) {
+      res.status(200).json(user);
+    } else {
+      res.status(404).json({ error: 'User not found' });
+    }
   } catch (error) {
     res.status(500).json({ error: 'Failed to load data' });
   }
