@@ -6,7 +6,7 @@ const Card = () => {
      const [users,setusers]=useState([])
     const {id}=useParams();
     useEffect(()=>{
-      axios.get(`/api/user/${id}`)
+      axios.get(`http://localhost:5000/user/${id}`)
       .then((res)=>{
          setusers(res.data)
       }
@@ -21,17 +21,12 @@ const Card = () => {
     <>
     <h1>CARDVIEW</h1>
     <div className='card'>
-      {users ? (
-        <>
-          <h2>{users.name}</h2>
-          <h2>{users.email}</h2>
-          <h2>{users.mobile}</h2>
-          <h2>{users.course}</h2>
-          <h2>{users.city}</h2>
-        </>
-      ) : (
-        <h2>Loading or User not found</h2>
-      )}
+        
+        <h2>{users.name}</h2>
+        <h2>{users.email}</h2>
+        <h2>{users.mobile}</h2>
+        <h2>{users.course}</h2>
+        <h2>{users.city}</h2>
     </div>
     </>
   )

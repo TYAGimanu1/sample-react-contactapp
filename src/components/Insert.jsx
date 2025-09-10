@@ -12,7 +12,7 @@ function Insert({ prefillUser }) {
     // insert Data
     const insertData = (e) => {
         e.preventDefault();
-        axios.post("/api/user", users)
+        axios.post("http://localhost:5000/user", users)
             .then(() => {
                 console.log("Data Inserted");
                 navigation('/view');
@@ -41,7 +41,7 @@ function Insert({ prefillUser }) {
                 />
                 <input
                     type='number'
-                    placeholder='Enter Mobile'
+                    placeholder='Enter Name Mobile'
                     value={users.mobile}
                     onChange={(e) => setUsers({ ...users, mobile: e.target.value })}
                 />

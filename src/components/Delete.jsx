@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Delete = () => {
   const [users,setuser]=useState([]);
   useEffect(()=>{
-    axios.get(`/api/user`)
+    axios.get(`http://localhost:5000/user`)
     .then((res)=>{
       setuser(res.data)
     })
