@@ -5,7 +5,7 @@ const View = () => {
 
     const [users,setUser]=useState([])
     useEffect(()=>{
-        axios.get("http://localhost:5000/user")
+        axios.get("/api/user")
         .then(res=>{
             setUser(res.data)
         })
@@ -15,7 +15,7 @@ const View = () => {
 
     },[])
 
-    const list = users.map(user=> <tr>
+    const list = users.map(user=> <tr key={user.id}>
         <td>{user.name}</td>
         <td>{user.email}</td>
         <td>{user.mobile}</td>
