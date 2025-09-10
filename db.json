@@ -16,5 +16,10 @@
       "course": "Python",
       "city": "Delhi"
     }
-  ]
+  ],
+  "functions": {
+    "api/*.js": {
+      "includeFiles": ["db.json"]
+    }
+  }
 }

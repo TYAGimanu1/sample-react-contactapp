@@ -2,12 +2,12 @@ const path = require('path');
 const fs = require('fs/promises');
 
 module.exports = async (req, res) => {
-  const dbPath = path.join(__dirname, '..', 'db.json'); // Adjust the path if necessary
+  const dbPath = path.join(__dirname, '..', 'db.json');
   try {
     const data = await fs.readFile(dbPath, 'utf-8');
     const jsonData = JSON.parse(data);
 
-    // Check if the request is for a specific user ID
+    // Handle dynamic routes
     const { id } = req.query;
     if (id) {
       const user = jsonData.user.find((u) => u.id === id);
@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
       }
     }
 
-    // If no ID is provided, return all users
+    // Return all users
     res.status(200).json(jsonData.user);
   } catch (error) {
     console.error('Error reading db.json:', error);
