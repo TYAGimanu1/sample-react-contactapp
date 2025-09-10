@@ -28,6 +28,10 @@ const Card = () => {
         <h2>{users.email}</h2>
         <h2>{users.mobile}</h2>
         <h2>{users.course}</h2>
+        <td>hsdncuajdciaiudsji</td>
+           <td>hsdncuajdciaiudsji</td>
+              <td>hsdncuajdciaiudsji</td>
+                 <td>hsdncuajdciaiudsji</td>
         <h2>{users.city}</h2>
       </div>
     </>
