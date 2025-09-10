@@ -1,14 +1,27 @@
-import { readFile } from 'fs/promises';
-import path from 'path';
+const path = require('path');
+const fs = require('fs/promises');
 
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
+  const dbPath = path.join(__dirname, '..', 'db.json'); // Adjust the path if necessary
   try {
-    const filePath = path.join(process.cwd(), 'db.json');
-    const data = await readFile(filePath, 'utf-8');
+    const data = await fs.readFile(dbPath, 'utf-8');
     const jsonData = JSON.parse(data);
 
-    res.status(200).json(jsonData.user); // Ensure the key matches the `db.json` structure
+    // Check if the request is for a specific user ID
+    const { id } = req.query;
+    if (id) {
+      const user = jsonData.user.find((u) => u.id === id);
+      if (user) {
+        return res.status(200).json(user);
+      } else {
+        return res.status(404).json({ error: 'User not found' });
+      }
+    }
+
+    // If no ID is provided, return all users
+    res.status(200).json(jsonData.user);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to load data' });
+    console.error('Error reading db.json:', error);
+    res.status(500).json({ error: 'Failed to read data' });
   }
-}
+};
