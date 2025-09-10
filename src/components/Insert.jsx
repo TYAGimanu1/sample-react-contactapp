@@ -41,7 +41,7 @@ function Insert({ prefillUser }) {
                 />
                 <input
                     type='number'
-                    placeholder='Enter Name Mobile'
+                    placeholder='Enter Mobile'
                     value={users.mobile}
                     onChange={(e) => setUsers({ ...users, mobile: e.target.value })}
                 />
