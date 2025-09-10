@@ -1,6 +1,6 @@
-import axios from 'axios'
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Insert({ prefillUser }) {
     const navigation = useNavigate();
@@ -12,9 +12,9 @@ function Insert({ prefillUser }) {
     // insert Data
     const insertData = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:5000/user", users)
-            .then(() => {
-                console.log("Data Inserted");
+        axios.post("/api/insert", users) // Updated API endpoint
+            .then((res) => {
+                console.log("Data Inserted:", res.data); // Log the response for debugging
                 navigation('/view');
             })
             .catch((err) => {
@@ -41,7 +41,7 @@ function Insert({ prefillUser }) {
                 />
                 <input
                     type='number'
-                    placeholder='Enter Name Mobile'
+                    placeholder='Enter Mobile'
                     value={users.mobile}
                     onChange={(e) => setUsers({ ...users, mobile: e.target.value })}
                 />
@@ -60,7 +60,7 @@ function Insert({ prefillUser }) {
                 <button onClick={insertData}>Insert Data</button>
             </div>
         </>
-    )
+    );
 }
 
-export default Insert
+export default Insert;
