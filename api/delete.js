@@ -8,7 +8,7 @@ export default async (req, res) => {
       const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
       const userId = req.query.id;
-      const updatedUsers = data.user.filter(user => user.id !== userId);
+      const updatedUsers = data.user.filter(user => user.id !== String(userId));
 
       if (updatedUsers.length === data.user.length) {
         return res.status(404).json({ message: 'User not found' });
