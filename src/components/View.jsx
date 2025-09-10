@@ -21,7 +21,7 @@ const View = () => {
         <td>{user.mobile}</td>
         <td>{user.course}</td>
         <td>{user.city}</td>
-        <td><Link to={`/card/${user.id}`}> view</Link></td>
+        <td><Link to={`/card?id=${user.id}`}> view</Link></td>
     </tr>)
   return (
     <>

@@ -8,6 +8,7 @@ const Card = () => {
   const id = searchParams.get('id');
 
   useEffect(() => {
+    console.log('Received id:', id); // Log the id to verify
     if (id) {
       axios.get(`/api/dynamic?id=${id}`)
         .then((res) => {
