@@ -15,14 +15,16 @@ const View = () => {
 
     },[])
 
-    const list = users.map(user=> <tr>
+    const list = Array.isArray(users) ? users.map(user => (
+      <tr key={user.id}>
         <td>{user.name}</td>
         <td>{user.email}</td>
         <td>{user.mobile}</td>
         <td>{user.course}</td>
         <td>{user.city}</td>
-        <td><Link to={`/card/${user.id}`}> view</Link></td>
-    </tr>)
+        <td><Link to={`/card/${user.id}`}>view</Link></td>
+      </tr>
+    )) : [];
   return (
     <>
     <h1>View page</h1>
