@@ -7,26 +7,22 @@ const View = () => {
     useEffect(()=>{
         axios.get("http://localhost:5000/user")
         .then(res=>{
-            // Ensure the response data is an array
-            setUser(Array.isArray(res.data) ? res.data : []);
+            setUser(res.data)
         })
         .catch(err=>{
             console.log(err);
-            setUser([]); // Fallback to an empty array on error
         })
 
     },[])
 
-    const list = Array.isArray(users) ? users.map(user => (
-      <tr key={user.id}>
+    const list = users.map(user=> <tr>
         <td>{user.name}</td>
         <td>{user.email}</td>
         <td>{user.mobile}</td>
         <td>{user.course}</td>
         <td>{user.city}</td>
-        <td><Link to={`/card/${user.id}`}>view</Link></td>
-      </tr>
-    )) : [];
+        <td><Link to={`/card/${user.id}`}> view</Link></td>
+    </tr>)
   return (
     <>
     <h1>View page</h1>
