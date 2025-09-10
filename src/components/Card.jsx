@@ -3,20 +3,18 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const Card = () => {
-     const [users,setusers]=useState([])
+     const [users, setusers] = useState({}); // Initialize as an object
     const {id}=useParams();
     useEffect(()=>{
-      axios.get(`http://localhost:5000/user/${id}`)
+      axios.get(`/api/dynamic/${id}`)
       .then((res)=>{
-         setusers(res.data)
-      }
-      )
-      .catch(e=>
+         setusers(res.data);
+      })
+      .catch((e)=>
       {
-        console.log(e)
-      }
-      )
-  },[])
+        console.log(e);
+      });
+    }, [id]); // Add id as a dependency to ensure proper fetching
   return (
     <>
     <h1>CARDVIEW</h1>
