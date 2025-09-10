@@ -1,0 +1,43 @@
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+
+const Delete = () => {
+  const [users,setuser]=useState([]);
+  useEffect(()=>{
+    axios.get(`http://localhost:5000/user`)
+    .then((res)=>{
+      setuser(res.data)
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+
+  },[])
+  const list=users.map(user=><tr>
+    <td>{user.name}</td>
+    <td>{user.email}</td>
+    <td>{user.mobile}</td>
+    <td>{user.course}</td>
+    <td>{user.city}</td>
+    <td><Link to={`/deletedata/${user.id}`}>Delete</Link></td>
+  </tr>)
+  return (
+    <>
+    <h1>DELETE</h1>
+    <table border="2px" width="100%">
+      <tr>
+        <th>NAME</th>
+        <th>EMAIL</th>
+        <th>MOBILE</th>
+        <th>COURSE</th>
+        <th>CITY</th>
+        <th>LINK</th>
+      </tr>
+      {list}
+    </table>
+    </>
+  )
+}
+
+export default Delete

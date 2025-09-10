@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+header {
+  padding: 2% 5%;
+  background-color: #404040;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+header ul {
+  display: flex;
+  gap: 20px;
+}
+
+header ul li {
+  list-style: none;
+}
+
+header ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  width: 90%;
+  margin: auto;
+  min-height: 80vh;
+  position: relative;
+  background-color: whitesmoke;
+}
+
+main h1 {
+  padding: 1%;
+  background-color: tomato;
+  color: white;
+  text-align: center;
+}
+
+/* Form Styling */
+.insert {
+  width: 40%;
+  margin: 1vh auto;
+}
+
+.insert input {
+  width: 100%;
+  height: 5vh;
+  margin-top: 1vh;
+  padding: 5px;
+}
+
+.insert button {
+  height: 5vh;
+  margin: 1vh auto;
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.insert button:hover {
+  background-color: #0056b3;
+}
+
+/* Card Styling */
+.card {
+  width: 40%;
+  margin: auto;
+  background-color: brown;
+  color: white;
+  border-radius: 10px;
+  padding: 2%;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styling */
+.table-responsive {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+  text-align: center;
+}
+
+th, td {
+  padding: 10px;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1024px) {
+  .insert {
+    width: 60%;
+  }
+  
+  .card {
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header ul {
+    
+    padding: 10px;
+  }
+
+  .insert {
+    width: 80%;
+  }
+
+  .card {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .insert {
+    width: 90%;
+  }
+
+  .card {
+    width: 90%;
+    padding: 10px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 5px;
+  }
+}
+
+
+ 
+
+
