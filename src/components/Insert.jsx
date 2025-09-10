@@ -12,7 +12,7 @@ function Insert({ prefillUser }) {
     // insert Data
     const insertData = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:5000/user", users)
+        axios.post("/api/user", users)
             .then(() => {
                 console.log("Data Inserted");
                 navigation('/view');

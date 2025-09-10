@@ -5,7 +5,7 @@ const View = () => {
 
     const [users,setUser]=useState([])
     useEffect(()=>{
-        axios.get("http://localhost:5000/user")
+        axios.get("/api/user/")
         .then(res=>{
             setUser(res.data)
         })

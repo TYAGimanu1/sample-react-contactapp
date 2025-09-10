@@ -8,7 +8,7 @@ const DeleteData = () => {
     const [users,setusers]=useState([])
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/user/${id}`)
+        axios.get(`/api/user/${id}`)
         .then((res)=>{
             setusers(res.data)
         })

@@ -8,7 +8,7 @@ const Edit = () => {
     const {id}=useParams()
 
     useEffect(()=>{
-     axios.get(`http://localhost:5000/user/${id}`)
+     axios.get(`/api/user/${id}`)
      .then((res)=>{
         setusers(res.data)
      })
@@ -16,7 +16,7 @@ const Edit = () => {
 
     const update= ()=>{
         
-        axios.put(`http://localhost:5000/user/${id}`,users)
+        axios.put(`/api/user/${id}`,users)
         navigation("/update")
     }
   return (
