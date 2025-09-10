@@ -15,7 +15,7 @@ export default defineConfig({
     historyApiFallback: true,
     proxy: {
       '/api': {
-        target: 'https://sample-react-contactapp.vercel.app/api/user', // Replace with your backend server URL
+        target: 'http://localhost:5000', // Replace with your backend server URL
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
