@@ -1,13 +1,13 @@
-import { readFile, writeFile } from 'fs/promises';
-import path from 'path';
+const fs = require('fs');
+const path = require('path');
 
-const dbPath = path.join(process.cwd(), 'db.json');
+const dbPath = path.join(__dirname, '..', '..', 'db.json');
 
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
   const { method } = req;
 
   if (method === 'DELETE') {
-    const id = req.query.id;
+    const id = req.query.id || req.url.split('/').pop();
 
     if (!id) {
       return res.status(400).json({ error: 'User ID is required' });
@@ -31,7 +31,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const data = await readFile(dbPath, 'utf-8');
+    const data = fs.readFileSync(dbPath, 'utf-8');
     const jsonData = JSON.parse(data);
 
     if (req.method === 'GET' && req.query.id) {
@@ -47,4 +47,4 @@ export default async function handler(req, res) {
   } catch (error) {
     res.status(500).json({ error: 'Failed to load data' });
   }
-}
+};
