@@ -5,7 +5,7 @@ const Home = () => {
 
     const [users,setUser]=useState([])
     useEffect(()=>{
-        axios.get("/api/users")
+        axios.get("/api/user")
         .then(res=>{
             setUser(res.data)
         })
