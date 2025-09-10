@@ -7,10 +7,12 @@ const View = () => {
     useEffect(()=>{
         axios.get("http://localhost:5000/user")
         .then(res=>{
-            setUser(res.data)
+            // Ensure the response data is an array
+            setUser(Array.isArray(res.data) ? res.data : []);
         })
         .catch(err=>{
             console.log(err);
+            setUser([]); // Fallback to an empty array on error
         })
 
     },[])
