@@ -4,16 +4,15 @@ import React, { useEffect, useState } from 'react'
 const Home = () => {
 
     const [users,setUser]=useState([])
-    useEffect(()=>{
+    useEffect(() => {
         axios.get("/api/user")
-        .then(res=>{
-            setUser(res.data)
-        })
-        .catch(err=>{
+          .then(res => {
+            setUser(res.data);
+          })
+          .catch(err => {
             console.log(err);
-        })
-
-    },[])
+          });
+    }, [])
 
     const list = users.map(user=> <tr key={user.id}>
         <td>{user.name}</td>
