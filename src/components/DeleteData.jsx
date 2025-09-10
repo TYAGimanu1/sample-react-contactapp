@@ -15,7 +15,7 @@ const DeleteData = () => {
     },[])
 
     const deletedata=()=>{
-     axios.delete(`http://localhost:5000/user/${id}`)
+     axios.delete(`/api/user/${id}`)
      navigation("/delete")
     }
     const cancel=()=>{
