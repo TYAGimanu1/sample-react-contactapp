@@ -21,12 +21,17 @@ const Card = () => {
     <>
     <h1>CARDVIEW</h1>
     <div className='card'>
-        
-        <h2>{users.name}</h2>
-        <h2>{users.email}</h2>
-        <h2>{users.mobile}</h2>
-        <h2>{users.course}</h2>
-        <h2>{users.city}</h2>
+      {users ? (
+        <>
+          <h2>{users.name}</h2>
+          <h2>{users.email}</h2>
+          <h2>{users.mobile}</h2>
+          <h2>{users.course}</h2>
+          <h2>{users.city}</h2>
+        </>
+      ) : (
+        <h2>Loading or User not found</h2>
+      )}
     </div>
     </>
   )
